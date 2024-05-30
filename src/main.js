@@ -4,9 +4,9 @@ import { bootstrapCameraKit, createMediaStreamSource, Transform2D, } from '@snap
   const cameraKit = await bootstrapCameraKit({ 
     apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNzE2ODE2ODQ2LCJzdWIiOiIzZmUzYzEyMy1lODdlLTQzNjEtODYwMi1jODkxMzNlYzMyOWN-U1RBR0lOR34wOThhY2U3MS01OWQ0LTQ2NzUtYjk0MS04YjUyMmRiMjJiZGEifQ.Vndej82iEI6kjWKSS9dG1gnoRbjVzBYq32vwq_NLV8o' });
 
-const liveRenderTarget = document.getElementById('canvas').replaceWith(session.output.live);
+const session = await cameraKit.createSession()
 
-const session = await cameraKit.createSession({ liveRenderTarget })
+document.getElementById('canvas').replaceWith(session.output.live);
 
 const {lenses} = await cameraKit.lensRepository.loadLensGroups(['7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'])
 
