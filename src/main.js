@@ -10,7 +10,23 @@ document.getElementById('canvas').replaceWith(session.output.live);
 
 const {lenses} = await cameraKit.lensRepository.loadLensGroups(['7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'])
 
-await session.applyLens(lenses[3])
+//let s = 0;
+//if (s = 1) {
+
+  //await session.applyLens(lenses[1])
+//}
+//else{
+
+  //await session.applyLens(lenses[0])
+//}
+document.getElementById('1').onclick = function(){switchLens(1)};
+document.getElementById('2').onclick = function(){switchLens(2)};
+document.getElementById('3').onclick = function(){switchLens(3)};
+
+function switchLens(int) {
+  session.applyLens(lenses[int])
+}
+
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
   video: true
@@ -23,9 +39,13 @@ const source = createMediaStreamSource(mediaStream, {
 
 await session.setSource(source);
 
+
+
 //source.setRenderSize(window.innerWidth, window.innerHeight)
 
+
 session.play();
+await session.applyLens(lenses[3])
 
 //const lens = await cameraKit.lensRepository.loadLens(
 //  '50507980875',

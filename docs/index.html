@@ -8,22 +8,42 @@
 
       <script type="module" crossorigin src="./packed.js"></script>
       <link rel="stylesheet" crossorigin href="index.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Georama">
+      <!-- <script type = "text/javascript" src="main.js"></script> -->
     </head>
 
   <body>
     <div id = 'container' style="display: flex;">
-    <div id = "demo">
-      <button>
-        <img id="gallery" src="./assets/AG-Yellow-Profile.jpg" alt="Yellow Profile">
-      </button>
+        <div class="navbar">
+          <a href="#">Home</a>
+            <div class="dropdown">
+                <a href="#">Menu</a>
+                <div class="dropdown-content">
+                    <a href="#" id="1" onclick="switchLens('1')"><img id="gallery" src="./assets/AG-Yellow-Profile.jpg" alt="Yellow Profile"></a>
+                    <a href="#" id="2" onclick="switchLens('2')">Item 2</a>
+                    <a href="#" id="3" onclick="switchLens('3')">Item 3</a>
+                    <a href="#">Item 4</a>
+                </div>
+            </div>
+      </div>
+        <button>
+          
+        </button>
+      
     </div>
+    
+    <p id="selectedText"></p>
+    
+ 
 
+
+    <!--
     <script>
       document.getElementById("demo").addEventListener("click", displayLens);
-      document.getElementById("canvas").style.display = "block";
+      document.getElementById("screen").style.display = "initial";
       
     function displayLens() {
-    var x = document.getElementById("canvas")
+    var x = document.getElementById("screen")
     if (x.style.display === "none") {
       x.style.display = "block";
     } else {
@@ -32,9 +52,13 @@
       }
     </script>
     </div>
+    -->
 
-    <canvas id="canvas"></canvas>
-    <script type="module" src="../src/main.js"></script>
+    <p id="screen">
+    <canvas id="canvas">
+      <script type="module" src="../src/main.js"></script>
+    </canvas>
+    </p>
     
 
     <div class="poweredbysnap-logo">
