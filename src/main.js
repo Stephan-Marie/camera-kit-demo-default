@@ -31,7 +31,7 @@ function switchLens(int) {
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
   video: {
-    facingMode: { exact: "environment" }
+    facingMode: "environment" 
   }
 });
 
