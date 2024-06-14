@@ -19,6 +19,7 @@ const {lenses} = await cameraKit.lensRepository.loadLensGroups(['f6d38e26-972c-4
 
   //await session.applyLens(lenses[0])
 //}
+
 document.getElementById('1').onclick = function(){switchLens(1)};
 document.getElementById('2').onclick = function(){switchLens(2)};
 document.getElementById('3').onclick = function(){switchLens(3)};
@@ -31,7 +32,7 @@ function switchLens(int) {
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
   video: {
-    facingMode: "environment" 
+    facingMode: 'environment'
   }
 });
 
