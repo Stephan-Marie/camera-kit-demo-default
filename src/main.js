@@ -1,5 +1,4 @@
 import { bootstrapCameraKit, createMediaStreamSource, Transform2D, } from '@snap/camera-kit';
-import { idText } from 'typescript';
 
 (async function () {
   const cameraKit = await bootstrapCameraKit({ 
@@ -21,10 +20,10 @@ const {lenses} = await cameraKit.lensRepository.loadLensGroups(['b6b6e979-46ce-4
   //await session.applyLens(lenses[0])
 //}
 
-document.getElementById('1').onclick = function(){switchLens(1)};
-document.getElementById('2').onclick = function(){switchLens(2)};
-document.getElementById('3').onclick = function(){switchLens(3)};
-document.getElementById('4').onclick = function(){switchLens(4)};
+document.getElementById('one').onclick = function(){switchLens(1)};
+document.getElementById('two').onclick = function(){switchLens(2)};
+document.getElementById('three').onclick = function(){switchLens(3)};
+document.getElementById('four').onclick = function(){switchLens(4)};
 
 function switchLens(int) {
   session.applyLens(lenses[int])
