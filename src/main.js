@@ -6,7 +6,7 @@ import { bootstrapCameraKit, createMediaStreamSource, Transform2D, } from '@snap
 
 const session = await cameraKit.createSession()
 
-document.getElementById('canvas').replaceWith(session.output.live);
+document.getElementById('canvas').replaceWith(session.output.capture);
 
 const {lenses} = await cameraKit.lensRepository.loadLensGroups(['f6d38e26-972c-4bd5-990d-5ed413a5c997'])
 
@@ -30,11 +30,12 @@ function switchLens(int) {
 
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
-  video: true
+  video: {
+    facingMode: { exact: "environment" }
+  }
 });
 
 const source = createMediaStreamSource(mediaStream, {
-  facingMode: { exact: "environment" }
 })
 
 await session.setSource(source);
@@ -44,7 +45,7 @@ await session.setSource(source);
 //source.setRenderSize(window.innerWidth, window.innerHeight)
 
 
-session.play();
+session.play('capture');
 //await session.applyLens(lenses[int])
 
 //const lens = await cameraKit.lensRepository.loadLens(
