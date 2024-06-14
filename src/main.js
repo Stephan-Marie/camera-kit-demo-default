@@ -52,6 +52,6 @@ session.play('capture');
 //  '7fa3fa7c-e626-4539-b9db-73cdb0b0b2ce'
 //);
 
-await session.applyLens(lens);
+//await session.applyLens(lens);
 
 })();
