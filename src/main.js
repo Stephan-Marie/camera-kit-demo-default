@@ -34,7 +34,7 @@ const mediaStream = await navigator.mediaDevices.getUserMedia({
 });
 
 const source = createMediaStreamSource(mediaStream, {
-  facingMode: 'environment'
+  facingMode: { exact: "environment" }
 })
 
 await session.setSource(source);
