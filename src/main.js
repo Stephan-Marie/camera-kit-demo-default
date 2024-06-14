@@ -26,16 +26,15 @@ document.getElementById('three').onclick = function(){switchLens(3)};
 document.getElementById('four').onclick = function(){switchLens(4)};
 
 function switchLens(int) {
-  session.applyLens(lenses[int])
+  session.applyLens(lenses[int]);
 }
 
 
 const mediaStream = await navigator.mediaDevices.getUserMedia({
-  video: { cameraType: 'back' 
-  }
+  video: true
 });
 
-const source = createMediaStreamSource(mediaStream, {
+const source = createMediaStreamSource(mediaStream, { cameraType: 'back' 
 })
 
 await session.setSource(source);
